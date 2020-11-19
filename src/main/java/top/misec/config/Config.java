@@ -40,6 +40,12 @@ public class Config {
      * 0：优先给热榜视频投币，1：优先给关注的up投币
      */
     private int coinAddPriority;
+    
+    /**
+     * 是否兑换银瓜子 [0,1]
+     * 0：不兑换，1：兑换
+     */
+    private int exchangeSilver;
 
     private static Config CONFIG = new Config();
 
@@ -71,6 +77,10 @@ public class Config {
     public int getNumberOfCoins() {
         return numberOfCoins;
     }
+    
+    public int getExchangeSilver() {
+        return exchangeSilver;
+    }
 
 
     @Override
@@ -81,6 +91,7 @@ public class Config {
                 ", monthEndAutoCharge=" + monthEndAutoCharge +
                 ", devicePlatform='" + devicePlatform + '\'' +
                 ", coinAddPriority=" + coinAddPriority +
+                ", exchangeSilver=" + exchangeSilver +
                 '}';
     }
 
@@ -98,6 +109,12 @@ public class Config {
             outputConfig += " 投币时是否点赞: " + "是";
         } else {
             outputConfig += " 投币时是否点赞: " + "否";
+        }
+        
+        if (exchangeSilver == 1) {
+            outputConfig += " 银瓜子兑换硬币: " + "是";
+        } else {
+            outputConfig += " 银瓜子兑换硬币: " + "否";
         }
 
         return outputConfig + " 执行app客户端操作的系统是: " + devicePlatform;

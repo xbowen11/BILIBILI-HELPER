@@ -1,7 +1,8 @@
 {
-  "numberOfCoins": 5,
+  "numberOfCoins": 0,
   "selectLike": 0,
-  "monthEndAutoCharge": true,
-  "devicePlatform": "ios",
-  "coinAddPriority": 1
+  "monthEndAutoCharge": false,
+  "devicePlatform": "android",
+  "coinAddPriority": 1,
+  "exchangeSilver" : 0
 }

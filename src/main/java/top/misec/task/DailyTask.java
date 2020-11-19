@@ -213,24 +213,28 @@ public class DailyTask {
     }
 
     public void silver2coin() {
-        JsonObject resultJson = HttpUtil.doGet(ApiList.silver2coin);
-        int responseCode = resultJson.get(statusCodeStr).getAsInt();
-        if (responseCode == 0) {
-            logger.info("银瓜子兑换硬币成功");
-        } else {
-            logger.debug("银瓜子兑换硬币失败 原因是: " + resultJson.get("msg").getAsString());
+        
+        exchangeSilver = Config.getInstance().getExchangeSilver();
+        
+        if (exchangeSilver == 1) {
+            JsonObject resultJson = HttpUtil.doGet(ApiList.silver2coin);
+            int responseCode = resultJson.get(statusCodeStr).getAsInt();
+            if (responseCode == 0) {
+                logger.info("银瓜子兑换硬币成功");
+            } else {
+                logger.debug("银瓜子兑换硬币失败 原因是: " + resultJson.get("msg").getAsString());
+            }
+
+            JsonObject queryStatus = HttpUtil.doGet(ApiList.getSilver2coinStatus).get("data").getAsJsonObject();
+            double silver2coinMoney = oftenAPI.getCoinBalance();
+            logger.info("当前银瓜子余额: " + queryStatus.get("silver").getAsInt());
+            logger.info("兑换银瓜子后硬币余额: " + silver2coinMoney);
+
+            /*
+            兑换银瓜子后，更新userInfo中的硬币值
+            */
+            userInfo.setMoney(silver2coinMoney);
         }
-
-        JsonObject queryStatus = HttpUtil.doGet(ApiList.getSilver2coinStatus).get("data").getAsJsonObject();
-        double silver2coinMoney = oftenAPI.getCoinBalance();
-        logger.info("当前银瓜子余额: " + queryStatus.get("silver").getAsInt());
-        logger.info("兑换银瓜子后硬币余额: " + silver2coinMoney);
-
-        /*
-        兑换银瓜子后，更新userInfo中的硬币值
-         */
-        userInfo.setMoney(silver2coinMoney);
-
     }
 
     /**
