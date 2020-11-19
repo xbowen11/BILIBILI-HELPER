@@ -214,7 +214,7 @@ public class DailyTask {
 
     public void silver2coin() {
         
-        exchangeSilver = Config.getInstance().getExchangeSilver();
+        int exchangeSilver = Config.getInstance().getExchangeSilver();
         
         if (exchangeSilver == 1) {
             JsonObject resultJson = HttpUtil.doGet(ApiList.silver2coin);
