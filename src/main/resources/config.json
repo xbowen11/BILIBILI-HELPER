@@ -3,7 +3,7 @@
   "reserveCoins": 50,
   "selectLike": 0,
   "monthEndAutoCharge": true,
-  "giveGift": true,
+  "giveGift": false,
   "upLive": "488970166",
   "chargeForLove": "0",
   "devicePlatform": "android",
