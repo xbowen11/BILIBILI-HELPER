@@ -27,7 +27,7 @@ public class DailyTask {
             new MangaSign(),
             //new CoinAdd(),
             //new Silver2coin(),
-            new LiveCheckin(),
+            new LiveCheckin()
             //new GiveGift(),
             //new ChargeMe(),
             //new GetVipPrivilege()
