@@ -23,14 +23,14 @@ public class DailyTask {
 
     private final List<Task> dailyTasks = Arrays.asList(
             new UserCheck(),
-            new VideoWatch(),
+            //new VideoWatch(),
             new MangaSign(),
-            new CoinAdd(),
-            new Silver2coin(),
+            //new CoinAdd(),
+            //new Silver2coin(),
             new LiveCheckin(),
-            new GiveGift(),
-            new ChargeMe(),
-            new GetVipPrivilege()
+            //new GiveGift(),
+            //new ChargeMe(),
+            //new GetVipPrivilege()
     );
 
     public void doDailyTask() {
